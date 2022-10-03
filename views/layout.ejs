@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="./styles/style.css" />
     <title>Mini Blog</title>
   </head>
-  <body>
-    <%- body%>
+  <body class="flex flex-col h-screen bg-white text-gray-800 break-words">
+    <%- include('header') %>
+    <main class="mx-7 lg:mx-6 mt-32 flex-grow"><%- body%></main>
+    <%- include('footer') %>
   </body>
 </html>
