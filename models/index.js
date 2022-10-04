@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
 const dotenv = require("dotenv");
 const rating = require("./RatingModel");
+const category = require('./CategoryModel')
 
 dotenv.config();
 
@@ -14,5 +15,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.rating = rating(sequelize, Sequelize);
+db.category = category(sequelize, Sequelize)
 
 module.exports = db;

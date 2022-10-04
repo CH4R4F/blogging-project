@@ -1,6 +1,7 @@
 const express = require("express");
 const ejsLayouts = require("express-ejs-layouts");
 const dotenv = require("dotenv");
+const categoryRoutes = require("./routes/CategoryRoutes")
 
 const app = express();
 dotenv.config();
