@@ -13,7 +13,7 @@ app.use(ejsLayouts);
 // static files are stored on public filder
 app.use(express.static(__dirname + "/public"));
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 app.listen(port, () => {
-  console.log(`You are running blog app on port ${port}`);
+    console.log(`You are running blog app on port ${port}`);
 });
