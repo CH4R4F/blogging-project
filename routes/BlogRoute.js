@@ -5,4 +5,6 @@ router.get("/", (req, res) => {
   res.render("stars");
 });
 
+router.post("/", (req, res) => {});
+
 module.exports = router;
