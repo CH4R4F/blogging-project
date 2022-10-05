@@ -3,7 +3,7 @@ const ejsLayouts = require("express-ejs-layouts");
 const dotenv = require("dotenv");
 const categoryRoutes = require("./routes/CategoryRoutes")
 const db = require("./models/");
-const RatingRoutes = require("./routes/RatingRoute");
+// const RatingRoutes = require("./routes/RatingRoute");
 
 const app = express();
 dotenv.config();
@@ -24,11 +24,11 @@ db.sequelize
     console.log("connected to db");
   })
   .catch((err) => {
-    console.log("error connecting to db");
+    console.log("error connecting to db" + err);
   });
 
 // routes
-app.use("/rates", RatingRoutes);
+// app.use("/rates", RatingRoutes);
 app.use("/category", categoryRoutes)
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

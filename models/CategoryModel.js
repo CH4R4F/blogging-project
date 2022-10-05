@@ -3,6 +3,8 @@ module.exports = (sequelize, Sequelize) => {
         category_name: {
             type: Sequelize.STRING
         }
+    }, {
+        timestamps: false
     })
 
     return category
