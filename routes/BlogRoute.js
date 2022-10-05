@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-// TODO
-// - create routes for blogs
-// - import controllers for each route and call them
+router.get("/", (req, res) => {
+    res.render("starts");
+});
+
+router.post("/", (req, res) => {});
+
+module.exports = router;
