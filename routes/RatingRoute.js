@@ -6,7 +6,7 @@ router.get("/all/:id", (req, res) => {
   getAll(req, res);
 });
 
-router.post("/create", (req, res) => {
+router.post("/add", (req, res) => {
   create(req, res);
 });
 
