@@ -6,6 +6,7 @@ const RatingRoutes = require("./routes/RatingRoute");
 const BlogRoutes = require("./routes/BlogRoute");
 const ArticleRoutes = require("./routes/ArticleRoute");
 const DashboardRoutes = require("./routes/DashboardRoute");
+const CommenterRoutes = require("./routes/CommenterRoute");
 
 const app = express();
 dotenv.config();
@@ -33,6 +34,7 @@ db.sequelize
 app.use("/rates", RatingRoutes);
 app.use("/blog", ArticleRoutes);
 app.use("/dashboard", DashboardRoutes);
+app.use("/commenter", CommenterRoutes);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
