@@ -1,5 +1,6 @@
 const express = require("express");
 const ejsLayouts = require("express-ejs-layouts");
+const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 const db = require("./models/");
 const RatingRoutes = require("./routes/RatingRoute");
@@ -9,6 +10,11 @@ const DashboardRoutes = require("./routes/DashboardRoute");
 
 const app = express();
 dotenv.config();
+app.use(
+  fileUpload({
+    createParentPath: true,
+  })
+);
 app.use(express.json());
 
 // ejs as a default template engine
@@ -21,13 +27,13 @@ app.use(express.static(__dirname + "/public"));
 
 // conect to db
 db.sequelize
-    .sync({ alter: true })
-    .then(() => {
-        console.log("connected to db");
-    })
-    .catch((err) => {
-        console.log("error connecting to db");
-    });
+  .sync({ alter: true })
+  .then(() => {
+    console.log("connected to db");
+  })
+  .catch((err) => {
+    console.log("error connecting to db");
+  });
 
 // routes
 app.use("/rates", RatingRoutes);
@@ -36,5 +42,5 @@ app.use("/dashboard", DashboardRoutes);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-    console.log(`You are running blog app on port ${port}`);
+  console.log(`You are running blog app on port ${port}`);
 });
