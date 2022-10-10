@@ -1,11 +1,12 @@
 const express = require('express')
 const router = express.Router()
 const {
-    getAll
+    getAll,
+    createController
 } = require("../controllers/CommenterController")
 
-router.get('/', (req, res) => {
-    getAll(req, res)
+router.post('/', (req, res) => {
+
 })
 
 

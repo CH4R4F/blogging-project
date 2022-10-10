@@ -5,8 +5,5 @@ router.get("/", (req, res) => {
     res.render("dashboard");
 });
 
-router.post("/addarticle", (req, res) => {
-    res.render("dashboard");
-});
 
 module.exports = router;

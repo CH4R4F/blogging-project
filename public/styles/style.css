@@ -2157,12 +2157,6 @@ html {
 .fixed {
   position: fixed;
 }
-.absolute {
-  position: absolute;
-}
-.relative {
-  position: relative;
-}
 .top-0 {
   top: 0px;
 }
@@ -2214,20 +2208,11 @@ html {
 .mt-32 {
   margin-top: 8rem;
 }
-.mb-4 {
-  margin-bottom: 1rem;
-}
-.ml-2 {
-  margin-left: 0.5rem;
-}
 .block {
   display: block;
 }
 .flex {
   display: flex;
-}
-.inline-flex {
-  display: inline-flex;
 }
 .hidden {
   display: none;
@@ -2252,9 +2237,6 @@ html {
 }
 .w-12 {
   width: 3rem;
-}
-.w-64 {
-  width: 16rem;
 }
 .max-w-5xl {
   max-width: 64rem;
@@ -2291,9 +2273,6 @@ html {
 }
 .self-stretch {
   align-self: stretch;
-}
-.overflow-hidden {
-  overflow: hidden;
 }
 .break-words {
   overflow-wrap: break-word;
@@ -2412,9 +2391,6 @@ html {
 .font-medium {
   font-weight: 500;
 }
-.font-bold {
-  font-weight: 700;
-}
 .leading-loose {
   line-height: 2;
 }
@@ -2496,47 +2472,38 @@ html {
     -webkit-clip-path: inset(1px);
             clip-path: inset(1px);
 }
-
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
-
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
-
 .hover\:text-gray-700:hover {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
-
 .hover\:text-teal-600:hover {
   --tw-text-opacity: 1;
   color: rgb(13 148 136 / var(--tw-text-opacity));
 }
-
 .focus\:border-gray-300:focus {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
-
 .focus\:bg-white:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-
 .group:hover .group-hover\:text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
-
 @media (min-width: 640px) {
 
   .sm\:order-none {
@@ -2567,7 +2534,6 @@ html {
     max-width: 20rem;
   }
 }
-
 @media (min-width: 768px) {
 
   .md\:order-none {
@@ -2598,7 +2564,6 @@ html {
     width: auto;
   }
 }
-
 @media (min-width: 1024px) {
 
   .lg\:mx-6 {
