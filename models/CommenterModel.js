@@ -1,9 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
     const commenter = sequelize.define("commenter", {
-        user: {
-            type: Sequelize.STRING,
-        },
-        commenter: {
+        commenter_article: {
             type: Sequelize.TEXT,
         }
     })

@@ -1,5 +1,6 @@
 const express = require("express");
 const ejsLayouts = require("express-ejs-layouts");
+const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 const db = require("./models/");
 const RatingRoutes = require("./routes/RatingRoute");
@@ -10,6 +11,11 @@ const CommenterRoutes = require("./routes/CommenterRoute");
 
 const app = express();
 dotenv.config();
+app.use(
+    fileUpload({
+        createParentPath: true,
+    })
+);
 app.use(express.json());
 
 // ejs as a default template engine

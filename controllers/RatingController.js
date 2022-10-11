@@ -19,6 +19,7 @@ exports.create = (req, res) => {
 
   // Create a Rating
   const rateInfo = {
+    userId: req.body.userId,
     articleId: req.body.articleId,
     rating: req.body.rate,
   };
@@ -29,6 +30,8 @@ exports.create = (req, res) => {
     .then((data) => {
       res.send({
         success: true,
+        message: "Rating was created successfully!",
+        data: data,
       });
     })
     .catch((err) => {
@@ -44,8 +47,11 @@ exports.getAll = (req, res) => {
   rating
     .findAll({ where: { articleId: id } })
     .then((data) => {
-      res.send(data);
-      console.log("this is data", data);
+      res.send({
+        success: true,
+        message: "Ratings retrieved successfully!",
+        data: data,
+      });
     })
     .catch((err) => {
       res.status(500).send({

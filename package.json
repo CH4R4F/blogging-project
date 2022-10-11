@@ -1,29 +1,31 @@
 {
-    "name": "blogging",
-    "version": "1.0.0",
-    "description": "a simple project to implement CRUD functionalities",
-    "main": "index.js",
-    "scripts": {
-        "dev": "nodemon index.js",
-        "tailwind": "postcss public/styles/tailwind.css -o public/styles/style.css -w"
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "autoprefixer": "^10.4.12",
-        "nodemon": "^2.0.20",
-        "postcss": "^8.4.16",
-        "tailwindcss": "^3.1.8"
-    },
-    "dependencies": {
-        "axios": "^0.27.2",
-        "daisyui": "^2.31.0",
-        "dotenv": "^16.0.2",
-        "ejs": "^3.1.8",
-        "express": "^4.18.1",
-        "express-ejs-layouts": "^2.5.1",
-        "mysql2": "^2.3.3",
-        "postcss-cli": "^10.0.0",
-        "sequelize": "^6.23.2"
-    }
+  "name": "blogging",
+  "version": "1.0.0",
+  "description": "a simple project to implement CRUD functionalities",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "tailwind": "postcss public/styles/tailwind.css -o public/styles/style.css -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.12",
+    "nodemon": "^2.0.20",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
+  },
+  "dependencies": {
+    "@editorjs/editorjs": "^2.25.0",
+    "axios": "^0.27.2",
+    "daisyui": "^2.31.0",
+    "dotenv": "^16.0.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-fileupload": "^1.4.0",
+    "mysql2": "^2.3.3",
+    "postcss-cli": "^10.0.0",
+    "sequelize": "^6.23.2"
+  }
 }
