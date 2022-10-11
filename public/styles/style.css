@@ -2445,6 +2445,9 @@ html {
 .h-8 {
   height: 2rem;
 }
+.h-32 {
+  height: 8rem;
+}
 .w-full {
   width: 100%;
 }
@@ -2544,6 +2547,9 @@ html {
 }
 .border-b {
   border-bottom-width: 1px;
+}
+.border-dashed {
+  border-style: dashed;
 }
 .border-gray-400 {
   --tw-border-opacity: 1;
@@ -2646,6 +2652,12 @@ html {
 .pb-3 {
   padding-bottom: 0.75rem;
 }
+.pt-7 {
+  padding-top: 1.75rem;
+}
+.pt-1 {
+  padding-top: 0.25rem;
+}
 .text-left {
   text-align: left;
 }
@@ -2725,6 +2737,10 @@ html {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
 .underline {
   text-decoration-line: underline;
 }
@@ -2738,6 +2754,9 @@ html {
 }
 .opacity-75 {
   opacity: 0.75;
+}
+.opacity-0 {
+  opacity: 0;
 }
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -2789,6 +2808,11 @@ html {
 .hover\:bg-gray-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gray-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
 .hover\:text-gray-700:hover {
@@ -2844,6 +2868,11 @@ html {
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.group:hover .group-hover\:text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 @media (min-width: 640px) {
