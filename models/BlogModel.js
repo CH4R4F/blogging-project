@@ -1,4 +1,14 @@
-// TODO
-// - connect to DB using information from .env file
-// - create necessary tables [blogs, comments, rates]
-// - add CRUD functionality on separated functions and export them so you can use them in clontrollers
+module.exports = (sequelize, Sequelize) => {
+  const article = sequelize.define("article", {
+      article_title: {
+          type: Sequelize.STRING,
+      },
+      article_content: {
+          type: Sequelize.TEXT,
+      },
+      article_image: {
+          type: Sequelize.STRING,
+      },
+  })
+  return article;
+}

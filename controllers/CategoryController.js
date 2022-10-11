@@ -1,6 +1,3 @@
-const {
-    json
-} = require('express/lib/response');
 const db = require('../models')
 const category = db.category
 

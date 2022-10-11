@@ -1,14 +1,22 @@
 const express = require("express");
 const ejsLayouts = require("express-ejs-layouts");
 const dotenv = require("dotenv");
-const categoryRoutes = require("./routes/CategoryRoutes")
+const categoryRoutes = require("./routes/CategoryRoutes");
 const db = require("./models/");
-// const RatingRoutes = require("./routes/RatingRoute");
-const blogRoutes = require("./routes/BlogRoute")
+const RatingRoutes = require("./routes/RatingRoute");
+const blogRoutes = require("./routes/BlogRoute");
+const homeRoutes = require("./routes/HomeRoutes");
+const dashboardRoutes = require("./routes/Dashboard");
+const fileUpload = require("express-fileupload");
 
 const app = express();
 dotenv.config();
 app.use(express.json());
+app.use(
+  fileUpload({
+    createParentPath: true,
+  })
+);
 
 // ejs as a default template engine
 app.set("view engine", "ejs");
@@ -28,17 +36,14 @@ db.sequelize
     console.log("error connecting to db" + err);
   });
 
-// routes
-//Home Page
-app.get("/", (req, res) => {
-  res.send("<h1>Hello SAFIA, it's the index page</h1>")
-})
-
-//Category page
-app.use("/category", categoryRoutes)
-
-//Blog page
-app.use("/blog", blogRoutes)
+// home routes
+app.use("/", homeRoutes);
+//Category Route
+app.use("/category", categoryRoutes);
+// Dashboard Routes
+app.use("/dashboard", dashboardRoutes);
+//Blog Route
+app.use("/blog", blogRoutes);
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`You are running blog app on port ${port}`);

@@ -9,7 +9,9 @@
   </head>
   <body class="flex flex-col h-screen bg-white text-gray-800 break-words">
     <%- include('header') %>
-    <main class="mx-7 lg:mx-6 mt-32 flex-grow"><%- body%></main>
+    <main class="mx-7 lg:mx-6 mt-32 flex-grow">
+      <div class="max-w-5xl mx-auto"><%- body%></div>
+    </main>
     <%- include('footer') %>
   </body>
 </html>
