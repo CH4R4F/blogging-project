@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const categoryRoutes = require("./routes/CategoryRoutes")
 const db = require("./models/");
 // const RatingRoutes = require("./routes/RatingRoute");
+const blogRoutes = require("./routes/BlogRoute")
 
 const app = express();
 dotenv.config();
@@ -28,8 +29,16 @@ db.sequelize
   });
 
 // routes
-// app.use("/rates", RatingRoutes);
+//Home Page
+app.get("/", (req, res) => {
+  res.send("<h1>Hello SAFIA, it's the index page</h1>")
+})
+
+//Category page
 app.use("/category", categoryRoutes)
+
+//Blog page
+app.use("/blog", blogRoutes)
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`You are running blog app on port ${port}`);
