@@ -9,7 +9,7 @@ form.addEventListener("submit", async (e) => {
 
   const formData = new FormData();
   formData.append("title", title.value);
-  formData.append("category", category.value);
+  formData.append("categoryId", category.value);
   formData.append("content", content.value);
   formData.append("image", image.files[0]);
 

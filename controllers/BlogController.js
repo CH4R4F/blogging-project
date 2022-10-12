@@ -6,6 +6,13 @@ exports.getAll = async (req, res) => {
   return blogs;
 };
 
+exports.getAllArticlesToRender = async (req, res) => {
+  const data = await blog.findAll({});
+  res.render("index", {
+    blogs: data,
+  });
+};
+
 exports.createArticle = async (req, res) => {
   const image = req?.files?.image;
 
@@ -21,9 +28,9 @@ exports.createArticle = async (req, res) => {
 
   const data = await blog.create({
     article_title: req.body.title,
-    category: req.body.category,
     article_content: req.body.content,
     article_image: image.name,
+    categoryId: req.body.categoryId,
   });
 
   res.send({

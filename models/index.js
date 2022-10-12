@@ -1,9 +1,9 @@
 const Sequelize = require("sequelize");
 const dotenv = require("dotenv");
 const rating = require("./RatingModel");
-const category = require('./CategoryModel')
-const blog = require("./BlogModel")
-const commenter = require("./CommenterModel")
+const category = require("./CategoryModel");
+const blog = require("./BlogModel");
+const commenter = require("./CommenterModel");
 
 dotenv.config();
 
@@ -17,22 +17,27 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.rating = rating(sequelize, Sequelize);
-db.category = category(sequelize, Sequelize)
-db.blog = blog(sequelize, Sequelize)
-db.commenter = commenter(sequelize, Sequelize)
+db.category = category(sequelize, Sequelize);
+db.blog = blog(sequelize, Sequelize);
+db.commenter = commenter(sequelize, Sequelize);
 
 // associations
 db.blog.hasOne(db.commenter, {
   onDelete: "cascade",
-  onUpdate: "cascade", 
-})
+  onUpdate: "cascade",
+});
 
 db.blog.hasMany(db.rating, {
   onDelete: "cascade",
   onUpdate: "cascade",
-})
+});
 
-db.commenter.belongsTo(db.blog)
-db.rating.belongsTo(db.blog)
+db.category.hasMany(db.blog, {
+  onDelete: "cascade",
+  onUpdate: "cascade",
+});
+
+db.commenter.belongsTo(db.blog);
+db.rating.belongsTo(db.blog);
 
 module.exports = db;

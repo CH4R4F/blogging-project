@@ -1,14 +1,14 @@
-<div class="w-full m-12 max-w-7xl">
-  <p class="text-xl pb-3 flex items-center"><i class="fas fa-list mr-3"></i>Articles List</p>
+<div class="w-full max-w-3xl mx-auto my-20">
+  <div class="flex justify-between mb-10">
+    <p class="text-xl pb-3 flex items-center"><i class="fas fa-list mr-3"></i>Categories List</p>
+    <a class="btn" href="/dashboard/category/new">Add Category</a>
+  </div>
   <div class="bg-white overflow-auto">
     <table class="text-left w-full border-collapse">
       <thead>
         <tr>
           <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-            Title
-          </th>
-          <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-            Content
+            Name
           </th>
           <th
             colspan="2"
@@ -19,16 +19,15 @@
         </tr>
       </thead>
       <tbody>
-        <% for (let blog of blogs) { %>
+        <% for (let category of categories) { %>
         <tr class="hover:bg-grey-lighter">
-          <td class="py-4 px-6 border-b border-grey-light"><%= blog.article_title %></td>
-          <td class="py-4 px-6 border-b border-grey-light"><%= blog.article_content %></td>
+          <td class="py-4 px-6 border-b border-grey-light"><%= category.category_name %></td>
           <td class="py-4 px-6 border-b border-grey-light">
-            <a href="/dashboard/blogs/<%= blog.id %>" class="text-blue-500 hover:text-blue-600 underline">Edit</a>
+            <a href="/dashboard/category/<%= category.id %>" class="text-blue-500 hover:text-blue-600 underline">Edit</a>
           </td>
           <td class="py-4 px-6 border-b border-grey-light">
             <button
-              data-id="<%= blog.id%>"
+              data-id="<%= category.id%>"
               data-role="delete"
               class="text-red-500 hover:text-red-600 underline"
               id="delete"
@@ -42,5 +41,3 @@
     </table>
   </div>
 </div>
-
-<script src="/js/article/delete.js"></script>

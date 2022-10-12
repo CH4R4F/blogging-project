@@ -2,13 +2,9 @@ const express = require("express");
 const router = express.Router();
 // include blog model
 const db = require("../models");
-const blog = db.blog;
+const {getAllArticlesToRender} = require("../controllers/BlogController")
 
-router.get("/", async (req, res) => {
-  const blogs = await blog.findAll({});
-  res.render("index", {
-    blogs: blogs,
-  });
-});
+
+router.get("/", getAllArticlesToRender)
 
 module.exports = router

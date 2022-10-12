@@ -44,7 +44,7 @@ app.use("/category", categoryRoutes);
 // Dashboard Routes
 app.use("/dashboard", dashboardRoutes);
 // commenter Routes
-app.use("/commenter", CommenterRoutes);
+app.use("/comment", CommenterRoutes);
 //Blog Route
 app.use("/blog", blogRoutes);
 //Rating Route

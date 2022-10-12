@@ -23,7 +23,7 @@ router.delete('/delete/:id', (req, res) => {
 })
 
 //UPDATE
-router.put("/edit/:id", (req, res) => {
+router.put("/:id", (req, res) => {
     updateCategory(req, res)
 })
 
