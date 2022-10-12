@@ -2,23 +2,22 @@ const form = document.querySelector("#addArticle");
 const title = document.getElementById("title");
 const category = document.getElementById("category");
 const content = document.getElementById("content");
-const image = document.getElementById("image");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  const { id } = form.dataset;
   const formData = new FormData();
   formData.append("title", title.value);
   formData.append("category", category.value);
   formData.append("content", content.value);
-  formData.append("image", image.files[0]);
 
-  const res = await fetch("/blog/add", {
-    method: "POST",
+  const res = await fetch(`/blog/edit/${id}`, {
+    method: "PUT",
     body: formData,
   });
   const data = await res.json();
-  if(data.success) {
-    form.reset()
+  if (data.success) {
+    window.location.href = "/dashboard/blogs";
   }
 });

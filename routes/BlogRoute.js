@@ -16,4 +16,6 @@ router.put("/edit/:id", updateArticle);
 
 router.get('/blog/:id', getBlogById)
 
+router.delete("/delete/:id", deleteArticle);
+
 module.exports = router;

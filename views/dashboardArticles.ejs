@@ -1,0 +1,50 @@
+<div class="w-full m-12">
+  <p class="text-xl pb-3 flex items-center"><i class="fas fa-list mr-3"></i> Table Example</p>
+  <div class="bg-white overflow-auto">
+    <table class="text-left w-full border-collapse">
+      <thead>
+        <tr>
+          <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
+            Title
+          </th>
+          <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
+            Category
+          </th>
+          <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
+            Content
+          </th>
+          <th
+            colspan="2"
+            class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light"
+          >
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let blog of blogs) { %>
+        <tr class="hover:bg-grey-lighter">
+          <td class="py-4 px-6 border-b border-grey-light"><%= blog.article_title %></td>
+          <td class="py-4 px-6 border-b border-grey-light"><%= blog.article_category %></td>
+          <td class="py-4 px-6 border-b border-grey-light"><%= blog.article_content %></td>
+          <td class="py-4 px-6 border-b border-grey-light">
+            <a href="/dashboard/blogs/<%= blog.id %>" class="text-blue-500 hover:text-blue-600 underline">Edit</a>
+          </td>
+          <td class="py-4 px-6 border-b border-grey-light">
+            <button
+              data-id="<%= blog.id%>"
+              data-role="delete"
+              class="text-red-500 hover:text-red-600 underline"
+              id="delete"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="/js/article/delete.js"></script>

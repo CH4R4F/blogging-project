@@ -6,7 +6,7 @@ const db = require("./models/");
 const RatingRoutes = require("./routes/RatingRoute");
 const blogRoutes = require("./routes/BlogRoute");
 const homeRoutes = require("./routes/HomeRoutes");
-const dashboardRoutes = require("./routes/Dashboard");
+const dashboardRoutes = require("./routes/DashboardRoutes");
 const fileUpload = require("express-fileupload");
 
 const app = express();

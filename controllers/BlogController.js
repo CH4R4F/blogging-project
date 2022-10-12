@@ -1,10 +1,10 @@
-const db = require('../models')
-const blog = db.blog
+const db = require("../models");
+const blog = db.blog;
 
 exports.getAll = async (req, res) => {
-  const blogs = await blog.findAll({})
-  return blogs
-} 
+  const blogs = await blog.findAll({});
+  return blogs;
+};
 
 exports.createArticle = async (req, res) => {
   const image = req?.files?.image;
@@ -46,7 +46,7 @@ exports.deleteArticle = async (req, res) => {
     message: "Article deleted successfully",
     data: data,
   });
-}
+};
 
 exports.updateArticle = async (req, res) => {
   const id = req.params.id;
@@ -68,7 +68,7 @@ exports.updateArticle = async (req, res) => {
     message: "Article updated successfully",
     data: data,
   });
-}
+};
 
 exports.getBlogById = async (req, res) => {
   const id = req.params.id;
@@ -77,10 +77,11 @@ exports.getBlogById = async (req, res) => {
       id: id,
     },
   });
+  console.log(data);
+  return data;
+};
 
-  res.send({
-    success: true,
-    message: "Article retrieved successfully",
-    data: data,
-  });
-}
+exports.getCount = async (req, res) => {
+  const count = await blog.count();
+  return count;
+};
