@@ -1,7 +1,7 @@
 const db = require("../models");
 const rating = db.rating;
 
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
   // Validate request
   if (!req.body.articleId) {
     res.status(400).send({
@@ -21,35 +21,76 @@ exports.create = (req, res) => {
   const rateInfo = {
     articleId: req.body.articleId,
     rating: req.body.rate,
+    userId: req.body.userId,
   };
 
-  // Save Rating in the database
-  rating
-    .create(rateInfo)
-    .then((data) => {
-      res.send({
-        success: true,
+  // // Save Rating in the database
+  // rating
+  //   .create(rateInfo)
+  //   .then((data) => {
+  //     res.send({
+  //       success: true,
+  //     });
+  //   })
+  //   .catch((err) => {
+  //     res.status(500).send({
+  //       message: err.message || "Some error occurred while creating the Rating.",
+  //     });
+  //   });
+  // check if user has already rated the article
+  const data = await rating.findAll({
+    where: {
+      articleId: req.body.articleId,
+      userId: req.body.userId,
+    },
+  });
+
+  if (data.length > 0) {
+    // update the rating
+    const id = data[0].id;
+    rating
+      .update(rateInfo, {
+        where: {
+          id: id,
+        },
+      })
+      .then((data) => {
+        res.send({
+          success: true,
+        });
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || "Some error occurred while creating the Rating.",
+        });
       });
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while creating the Rating.",
+  } else {
+    // create the rating
+    rating
+      .create(rateInfo)
+      .then((data) => {
+        res.send({
+          success: true,
+        });
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || "Some error occurred while creating the Rating.",
+        });
       });
-    });
+  }
+
 };
 
-exports.getAll = (req, res) => {
-  const id = req.params.id;
+exports.getAll = async (req, res) => {
+  const { userId, articleId } = req.params;
 
-  rating
-    .findAll({ where: { articleId: id } })
-    .then((data) => {
-      res.send(data);
-      console.log("this is data", data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while retrieving ratings.",
-      });
-    });
+  const data = await rating.findAll({
+    where: {
+      userId: userId,
+      articleId: articleId,
+    },
+  });
+
+  res.send(data);
 };

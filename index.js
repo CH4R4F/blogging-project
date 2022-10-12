@@ -7,6 +7,7 @@ const RatingRoutes = require("./routes/RatingRoute");
 const blogRoutes = require("./routes/BlogRoute");
 const homeRoutes = require("./routes/HomeRoutes");
 const dashboardRoutes = require("./routes/DashboardRoutes");
+const CommenterRoutes = require("./routes/CommenterRoute");
 const fileUpload = require("express-fileupload");
 
 const app = express();
@@ -28,7 +29,7 @@ app.use(express.static(__dirname + "/public"));
 
 // conect to db
 db.sequelize
-  .sync()
+  .sync({ alter: true })
   .then(() => {
     console.log("connected to db");
   })
@@ -42,8 +43,12 @@ app.use("/", homeRoutes);
 app.use("/category", categoryRoutes);
 // Dashboard Routes
 app.use("/dashboard", dashboardRoutes);
+// commenter Routes
+app.use("/commenter", CommenterRoutes);
 //Blog Route
 app.use("/blog", blogRoutes);
+//Rating Route
+app.use("/rates", RatingRoutes);
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`You are running blog app on port ${port}`);
